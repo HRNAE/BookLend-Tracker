@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Classroom Book Lending Tracker</title>
+  <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+
+<div class="center">
+  <h1>Classroom Book Lending Tracker</h1>
+  <h2>Manage which student has which book in one place</h2>
+</div>
+
+<div class="row">
+  <!-- Add Book Section -->
+  <div class="column">
+    <h2>Add New Book</h2>
+    <form id="addBookForm">
+      <label for="booktitle">Book Title</label>
+      <input type="text" id="booktitle" name="booktitle">
+
+      <label for="author">Author</label>
+      <input type="text" id="author" name="author">
+
+      <label for="booknumber">Book Number</label>
+      <input type="text" id="booknumber" name="booknumber">
+
+      <button id="add-book"type="submit">Add Book</button>
+    </form>
+  </div>
+
+  <!-- Lend / Return Section -->
+  <div class="column">
+    <h2>Lend / Return Book</h2>
+    <label for="studentDropdown">Student Name</label>
+<select id="studentDropdown">
+  <option value="">Select a student</option>
+</select>
+
+<label for="bookDropdown">Available Book</label>
+<select id="bookDropdown">
+  <option value="">Select a book</option>
+</select>
+
+
+    <div>
+      <button id="lendBtn" type="button">Lend Book</button>
+      <button id="returnBtn" type="button">Return Book</button>
+    </div>
+  </div>
+
+  <!-- Add Student Section -->
+  <div class="column">
+    <h2>Add Student</h2>
+    <form id="addStudentForm">
+      <label for="studentname">Student Name</label>
+      <input type="text" id="studentname" name="studentname">
+
+      <label for="idnum">ID Number</label>
+      <input type="text" id="idnum" name="idnum">
+
+      <button id='add-student' type="submit">Add Student</button>
+    </form>
+  </div>
+</div>
+
+<div class="bottom-center">
+  <button id="exportCsvBtn" type="button">Return CSV</button>
+</div>
+
+<script src="index.js"></script>
+</body>
+</html>
