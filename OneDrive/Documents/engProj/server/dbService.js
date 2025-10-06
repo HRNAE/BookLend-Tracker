@@ -4,7 +4,7 @@ const dotenv = require('dotenv');
 
 dotenv.config({ path: path.join(__dirname, '.env') });
 
-// ✅ Create three DB pools
+//  Create three DB pools
 const db1 = mysql.createPool({
   host: process.env.DB1_HOST,
   user: process.env.DB1_USER,
@@ -29,7 +29,7 @@ const db3 = mysql.createPool({
   port: process.env.DB3_PORT
 });
 
-// 🔹 Test DB connections
+//  Test DB connections
 [db1, db2, db3].forEach((pool, idx) => {
   pool.getConnection((err, conn) => {
     if (err) console.error(`DB${idx + 1} connection error:`, err.message);
@@ -48,7 +48,7 @@ class DbService {
     return instance;
   }
 
-  // ✅ Insert a new book/student
+  //  Insert a new book/student
   async insertNewBook(bookName, author, bookNumber) {
     const dateAdded = new Date();
     const sql = `INSERT INTO names (title, author, book_id, date_added, available) VALUES (?, ?, ?, ?, ?)`;
@@ -72,7 +72,7 @@ class DbService {
     });
   }
 
-  // ✅ Get all data from all three DBs
+  //  Get all data from all three DBs
   async getAllData() {
     const queryDB = (pool, sql) =>
       new Promise((resolve, reject) => {
