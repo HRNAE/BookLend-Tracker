@@ -21,7 +21,7 @@ A simple classroom book-lending tracker: keep track of which books are in the cl
 ## Project Structure
 
 ```
-engProj/
+BookLend-Tracker/
 ├── client/
 │   ├── index.html        # Main UI: add book / add student / lend-return panels
 │   ├── index.js           # Fetch calls to the API, dropdown population
@@ -30,9 +30,11 @@ engProj/
 │   ├── app.js              # Express app & routes
 │   ├── dbService.js       # MySQL pool setup + query logic
 │   ├── .env               # DB credentials (not committed — see below)
+│   ├── .env.example       # Template for required environment variables
 │   └── package.json
-└── .vscode/
-    └── launch.json         # VS Code debug config for running the server
+├── .vscode/
+│   └── launch.json         # VS Code debug config for running the server
+└── .gitignore
 ```
 
 ## Database Setup
@@ -47,7 +49,11 @@ The backend connects to **three separate MySQL databases/pools**, referred to as
 
 All three currently query a table named `names`, so each pool is expected to point at a database that has a `names` table matching the relevant schema above.
 
-Create a `.env` file inside `server/` with the following variables:
+Copy `server/.env.example` to `server/.env` and fill in your own values:
+
+```bash
+cp server/.env.example server/.env
+```
 
 ```
 PORT=5000
@@ -71,6 +77,8 @@ DB3_DATABASE=
 DB3_PORT=
 ```
 
+`.env` is gitignored — never commit real credentials.
+
 ## Getting Started
 
 ### Prerequisites
@@ -84,7 +92,7 @@ npm install
 ```
 
 ### 2. Configure environment variables
-Create `server/.env` as described above.
+Copy `server/.env.example` to `server/.env` and fill in your DB credentials (see above).
 
 ### 3. Run the server
 ```bash
